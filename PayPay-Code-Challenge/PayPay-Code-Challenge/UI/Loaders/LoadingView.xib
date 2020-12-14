@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_0" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LoadingView" customModule="PayPay_Code_Challenge" customModuleProvider="target">
+            <connections>
+                <outlet property="activityIndicator" destination="xu8-fq-c1g" id="yz5-JE-CK8"/>
+                <outlet property="labelLoading" destination="lVY-zZ-dnV" id="ITS-Za-NLh"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view alpha="0.90000000000000002" contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Oz4-vR-QHh">
+                    <rect key="frame" x="16" y="257.5" width="288" height="53"/>
+                    <subviews>
+                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="MMc-K4-VBK">
+                            <rect key="frame" x="0.0" y="0.0" width="288" height="53"/>
+                            <subviews>
+                                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="xu8-fq-c1g">
+                                    <rect key="frame" x="134" y="0.0" width="20" height="20"/>
+                                    <color key="color" systemColor="systemGrayColor" red="0.5568627451" green="0.5568627451" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </activityIndicatorView>
+                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="w6l-jr-uf2">
+                                    <rect key="frame" x="113" y="36" width="62.5" height="17"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LOADING" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lVY-zZ-dnV">
+                                            <rect key="frame" x="0.0" y="0.0" width="62.5" height="17"/>
+                                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
+                                            <color key="textColor" systemColor="systemGrayColor" red="0.5568627451" green="0.5568627451" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </stackView>
+                            </subviews>
+                        </stackView>
+                    </subviews>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                    <constraints>
+                        <constraint firstAttribute="bottom" secondItem="MMc-K4-VBK" secondAttribute="bottom" id="RyK-de-5KP"/>
+                        <constraint firstItem="MMc-K4-VBK" firstAttribute="top" secondItem="Oz4-vR-QHh" secondAttribute="top" id="YvV-fl-udb"/>
+                        <constraint firstItem="MMc-K4-VBK" firstAttribute="leading" secondItem="Oz4-vR-QHh" secondAttribute="leading" id="kiT-1U-qWh"/>
+                        <constraint firstAttribute="trailing" secondItem="MMc-K4-VBK" secondAttribute="trailing" id="urp-di-Xqh"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="Oz4-vR-QHh" secondAttribute="trailing" constant="16" id="Hv9-Kj-iRI"/>
+                <constraint firstItem="Oz4-vR-QHh" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="SX3-8p-o9a"/>
+                <constraint firstItem="Oz4-vR-QHh" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="16" id="W9E-PX-IjF"/>
+                <constraint firstItem="Oz4-vR-QHh" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="tOp-mf-dyd"/>
+            </constraints>
+            <point key="canvasLocation" x="-168.75" y="-15.845070422535212"/>
+        </view>
+    </objects>
+</document>
