@@ -33,6 +33,11 @@
 		91A0203E2587B82500A12539 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91A0203A2587B82500A12539 /* LoadingView.swift */; };
 		91A0203F2587B82500A12539 /* LoadingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 91A0203B2587B82500A12539 /* LoadingView.xib */; };
 		91A020422587C08500A12539 /* Countries.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91A020412587C08500A12539 /* Countries.swift */; };
+		91A0204B2588D9CC00A12539 /* ExchangeRateCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91A0204A2588D9CC00A12539 /* ExchangeRateCell.swift */; };
+		91A0204D2588DBA600A12539 /* ExchangeRateDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91A0204C2588DBA600A12539 /* ExchangeRateDataSource.swift */; };
+		91A0204F2588DBF000A12539 /* ExchangeRateData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91A0204E2588DBF000A12539 /* ExchangeRateData.swift */; };
+		91A020512588E81600A12539 /* Format.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91A020502588E81600A12539 /* Format.swift */; };
+		91A020532588ED0200A12539 /* Array+Chunk.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91A020522588ED0200A12539 /* Array+Chunk.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -76,6 +81,11 @@
 		91A0203A2587B82500A12539 /* LoadingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		91A0203B2587B82500A12539 /* LoadingView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoadingView.xib; sourceTree = "<group>"; };
 		91A020412587C08500A12539 /* Countries.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Countries.swift; sourceTree = "<group>"; };
+		91A0204A2588D9CC00A12539 /* ExchangeRateCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeRateCell.swift; sourceTree = "<group>"; };
+		91A0204C2588DBA600A12539 /* ExchangeRateDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeRateDataSource.swift; sourceTree = "<group>"; };
+		91A0204E2588DBF000A12539 /* ExchangeRateData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeRateData.swift; sourceTree = "<group>"; };
+		91A020502588E81600A12539 /* Format.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Format.swift; sourceTree = "<group>"; };
+		91A020522588ED0200A12539 /* Array+Chunk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Chunk.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,7 +129,7 @@
 			children = (
 				91A020152587336500A12539 /* CCApi */,
 				91A020282587A98700A12539 /* DataSource */,
-				91A020202587A62B00A12539 /* Extensions */,
+				91A020202587A62B00A12539 /* Extensions + Utilities */,
 				91A0201A258758CC00A12539 /* Model */,
 				91A01FF7258727F200A12539 /* Networking */,
 				91A01FF6258727DD00A12539 /* Supporting */,
@@ -180,6 +190,7 @@
 				91A0201B258758F200A12539 /* RateLists.swift */,
 				91A0201D25875D6500A12539 /* DataDecodingError.swift */,
 				91A020412587C08500A12539 /* Countries.swift */,
+				91A0204E2588DBF000A12539 /* ExchangeRateData.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -187,6 +198,7 @@
 		91A0201F2587A4D900A12539 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				91A020472588D92F00A12539 /* CurrencyCollection */,
 				91A020402587B8A700A12539 /* Loaders */,
 				91A01FE6258727BA00A12539 /* CurrencyViewController.swift */,
 				91A01FE8258727BA00A12539 /* Main.storyboard */,
@@ -194,13 +206,15 @@
 			path = UI;
 			sourceTree = "<group>";
 		};
-		91A020202587A62B00A12539 /* Extensions */ = {
+		91A020202587A62B00A12539 /* Extensions + Utilities */ = {
 			isa = PBXGroup;
 			children = (
 				91A020322587B42F00A12539 /* UIImage+Style.swift */,
 				91A020342587B64A00A12539 /* UITextField.swift */,
+				91A020502588E81600A12539 /* Format.swift */,
+				91A020522588ED0200A12539 /* Array+Chunk.swift */,
 			);
-			path = Extensions;
+			path = "Extensions + Utilities";
 			sourceTree = "<group>";
 		};
 		91A020232587A6EF00A12539 /* ViewModels */ = {
@@ -214,6 +228,7 @@
 		91A020282587A98700A12539 /* DataSource */ = {
 			isa = PBXGroup;
 			children = (
+				91A0204C2588DBA600A12539 /* ExchangeRateDataSource.swift */,
 			);
 			path = DataSource;
 			sourceTree = "<group>";
@@ -226,6 +241,14 @@
 				91A020382587B82500A12539 /* LoadingViewManager.swift */,
 			);
 			path = Loaders;
+			sourceTree = "<group>";
+		};
+		91A020472588D92F00A12539 /* CurrencyCollection */ = {
+			isa = PBXGroup;
+			children = (
+				91A0204A2588D9CC00A12539 /* ExchangeRateCell.swift */,
+			);
+			path = CurrencyCollection;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -339,16 +362,21 @@
 				91A01FF925872D1400A12539 /* NetworkErrors.swift in Sources */,
 				91A0200125872DC400A12539 /* Parsing.swift in Sources */,
 				91A01FFF25872D8600A12539 /* Request.swift in Sources */,
+				91A020512588E81600A12539 /* Format.swift in Sources */,
+				91A0204F2588DBF000A12539 /* ExchangeRateData.swift in Sources */,
 				91A020252587A70A00A12539 /* CurrencyViewModel.swift in Sources */,
 				91A01FE3258727BA00A12539 /* AppDelegate.swift in Sources */,
 				91A0201E25875D6500A12539 /* DataDecodingError.swift in Sources */,
 				91A0201C258758F200A12539 /* RateLists.swift in Sources */,
+				91A020532588ED0200A12539 /* Array+Chunk.swift in Sources */,
 				91A0203E2587B82500A12539 /* LoadingView.swift in Sources */,
 				91A020192587580A00A12539 /* RateListRequest.swift in Sources */,
 				91A0200525872DF400A12539 /* NetworkConstant.swift in Sources */,
+				91A0204B2588D9CC00A12539 /* ExchangeRateCell.swift in Sources */,
 				91A020332587B42F00A12539 /* UIImage+Style.swift in Sources */,
 				91A0203C2587B82500A12539 /* LoadingViewManager.swift in Sources */,
 				91A020352587B64A00A12539 /* UITextField.swift in Sources */,
+				91A0204D2588DBA600A12539 /* ExchangeRateDataSource.swift in Sources */,
 				91A020422587C08500A12539 /* Countries.swift in Sources */,
 				91A01FE5258727BA00A12539 /* SceneDelegate.swift in Sources */,
 			);
