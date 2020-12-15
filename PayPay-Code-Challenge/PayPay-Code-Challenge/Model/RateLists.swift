@@ -20,6 +20,9 @@ struct RateLists {
     /// returns privacy policy
     let privacy: String?
     
+    /// timestamp of fetched API
+    let timeStamp: TimeInterval?
+    
     /// Source against which rate was queried
     let source: String?
     
@@ -30,11 +33,11 @@ struct RateLists {
     let error: APIError?
 }
 
-extension RateLists: Decodable {
+extension RateLists: Codable {
     
     private enum CodingKeys: String, CodingKey {
         
-        case success = "success", terms = "terms", privacy = "privacy", source = "source", quotes = "quotes", error = "error"
+        case success = "success", terms = "terms", privacy = "privacy", source = "source", quotes = "quotes", error = "error", timeStamp = "timestamp"
         
     }
 
@@ -45,6 +48,7 @@ extension RateLists: Decodable {
         self.source = nil
         self.quotes = [:]
         self.error = nil
+        self.timeStamp = 0.0
     }
     
     init(from decoder: Decoder) throws {
@@ -55,10 +59,23 @@ extension RateLists: Decodable {
         self.source = try values.decodeIfPresent(String.self, forKey: .source)
         self.quotes = try values.decodeIfPresent([String: Double].self, forKey: .quotes)
         self.error = try values.decodeIfPresent(APIError.self, forKey: .error)
+        self.timeStamp = try values.decodeIfPresent(TimeInterval.self, forKey: .timeStamp)
     }
+    
+    public func encode(to encoder: Encoder) throws {
+         var container = encoder.container(keyedBy: CodingKeys.self)
+         try container.encodeIfPresent(success, forKey: .success)
+         try container.encodeIfPresent(terms, forKey: .terms)
+         try container.encodeIfPresent(privacy, forKey: .privacy)
+         try container.encodeIfPresent(source, forKey: .source)
+         try container.encodeIfPresent(quotes, forKey: .quotes)
+         try container.encodeIfPresent(error, forKey: .error)
+         try container.encodeIfPresent(timeStamp, forKey: .timeStamp)
+     }
+    
 }
 
-struct APIError: Decodable {
+struct APIError: Codable {
     let code: Int
     let info: String
 }

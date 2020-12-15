@@ -38,6 +38,7 @@
 		91A0204F2588DBF000A12539 /* ExchangeRateData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91A0204E2588DBF000A12539 /* ExchangeRateData.swift */; };
 		91A020512588E81600A12539 /* Format.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91A020502588E81600A12539 /* Format.swift */; };
 		91A020532588ED0200A12539 /* Array+Chunk.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91A020522588ED0200A12539 /* Array+Chunk.swift */; };
+		91A020552588F0B200A12539 /* UserDefaults+Wrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91A020542588F0B200A12539 /* UserDefaults+Wrapper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -86,6 +87,7 @@
 		91A0204E2588DBF000A12539 /* ExchangeRateData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeRateData.swift; sourceTree = "<group>"; };
 		91A020502588E81600A12539 /* Format.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Format.swift; sourceTree = "<group>"; };
 		91A020522588ED0200A12539 /* Array+Chunk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Chunk.swift"; sourceTree = "<group>"; };
+		91A020542588F0B200A12539 /* UserDefaults+Wrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+Wrapper.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -213,6 +215,7 @@
 				91A020342587B64A00A12539 /* UITextField.swift */,
 				91A020502588E81600A12539 /* Format.swift */,
 				91A020522588ED0200A12539 /* Array+Chunk.swift */,
+				91A020542588F0B200A12539 /* UserDefaults+Wrapper.swift */,
 			);
 			path = "Extensions + Utilities";
 			sourceTree = "<group>";
@@ -360,6 +363,7 @@
 				91A01FFB25872D3200A12539 /* NetworkSession.swift in Sources */,
 				91A0200325872DDA00A12539 /* RequestBuilder.swift in Sources */,
 				91A01FF925872D1400A12539 /* NetworkErrors.swift in Sources */,
+				91A020552588F0B200A12539 /* UserDefaults+Wrapper.swift in Sources */,
 				91A0200125872DC400A12539 /* Parsing.swift in Sources */,
 				91A01FFF25872D8600A12539 /* Request.swift in Sources */,
 				91A020512588E81600A12539 /* Format.swift in Sources */,
