@@ -15,4 +15,5 @@ struct Countries: Decodable {
 struct Country: Decodable {
     let code: String
     let name: String
+   // let flag: String
 }

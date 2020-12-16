@@ -72,15 +72,13 @@ final class CurrencyViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Currency"
-        
         self.sourceCurrencyTextField.inputView = self.currencyPickerView
         self.currencyPickerView.delegate = self
-        self.currencyPickerView.selectRow(0, inComponent: 0, animated: true)
+        self.currencyPickerView.selectRow(self.viewModel.usdIndex, inComponent: 0, animated: true)
         self.bindViewModel()
     }
     
     private func bindViewModel() {
-        self.viewModel.getExchangeRates(for: self.viewModel.sourceCurrencies.first ?? "USD")
         
         self.viewModel.startLoading = { [weak self] in
             guard let _self = self else { return }
@@ -109,6 +107,7 @@ final class CurrencyViewController: UIViewController {
             _self.collectionView.reloadData()
         }
         
+        self.viewModel.selectedCurrency(index: self.currencyPickerView.selectedRow(inComponent: 0))
         self.viewModel.bindViewModel()
     }
 }

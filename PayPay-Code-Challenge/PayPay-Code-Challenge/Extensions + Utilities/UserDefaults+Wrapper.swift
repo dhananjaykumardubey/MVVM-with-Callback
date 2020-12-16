@@ -8,28 +8,51 @@
 
 import Foundation
 
-final class UserDefaultsHelper {
-    
-    static func set(_ value: RateLists?, forKey defaultName: String) {
-        guard let data = try? PropertyListEncoder().encode(value)
-            else {
-                return
+protocol ObjectSavable {
+    func setObject<Object>(_ object: Object, forKey: String) throws where Object: Encodable
+    func getObject<Object>(forKey: String, castTo type: Object.Type) throws -> Object where Object: Decodable
+    func removeData(key: String)
+    func removeAll()
+}
+
+enum ObjectSavableError: String, LocalizedError {
+    case unableToEncode = "Unable to encode object into data"
+    case noValue = "No data object found for the given key"
+    case unableToDecode = "Unable to decode object into given type"
+    var errorDescription: String? {
+        rawValue
+    }
+}
+
+extension UserDefaults: ObjectSavable {
+    func setObject<Object>(_ object: Object, forKey: String) throws where Object: Encodable {
+        let encoder = JSONEncoder()
+        do {
+            let data = try encoder.encode(object)
+            set(data, forKey: forKey)
+        } catch {
+            throw ObjectSavableError.unableToEncode
         }
-        UserDefaults.standard.set(data, forKey: defaultName)
     }
     
-    static func get(forKey defaultName: String) -> RateLists? {
-        guard let data = UserDefaults.standard.object(forKey: defaultName) as? Data
-            else { return nil }
-        return try? PropertyListDecoder().decode(RateLists.self, from: data)
+    func getObject<Object>(forKey: String, castTo type: Object.Type) throws -> Object where Object: Decodable {
+        guard let data = data(forKey: forKey) else { throw ObjectSavableError.noValue }
+        
+        let decoder = JSONDecoder()
+        do {
+            let object = try decoder.decode(type, from: data)
+            return object
+        } catch {
+            throw ObjectSavableError.unableToDecode
+        }
     }
     
-    static func removeData(key: String) {
+    func removeData(key: String) {
         let defaults = UserDefaults.standard
         defaults.removeObject(forKey: key)
     }
     
-    static func removeAll() {
+    func removeAll() {
         let defaults = UserDefaults.standard
         let dictionary = defaults.dictionaryRepresentation()
         dictionary.keys.forEach { key in

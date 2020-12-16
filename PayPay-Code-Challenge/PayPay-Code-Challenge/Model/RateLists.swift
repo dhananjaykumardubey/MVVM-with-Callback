@@ -69,7 +69,6 @@ extension RateLists: Codable {
          try container.encodeIfPresent(privacy, forKey: .privacy)
          try container.encodeIfPresent(source, forKey: .source)
          try container.encodeIfPresent(quotes, forKey: .quotes)
-         try container.encodeIfPresent(error, forKey: .error)
          try container.encodeIfPresent(timeStamp, forKey: .timeStamp)
      }
     

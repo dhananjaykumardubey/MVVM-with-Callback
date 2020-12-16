@@ -9,7 +9,7 @@
 import Foundation
 
 class CurrencyViewModel {
-   
+    
     var startLoading: (() -> Void)?
     var endLoading: (() -> Void)?
     var showError: ((String) -> Void)?
@@ -20,6 +20,7 @@ class CurrencyViewModel {
     private lazy var currencies: [String] = []
     private var amount: Double = 1.0
     private var selectedCurrency = ""
+    private var availableCurrencyIndex = 0
     private lazy var exchangeRates: [String: Double] = [:]
     
     init() {
@@ -29,11 +30,15 @@ class CurrencyViewModel {
     }
     
     var sourceCurrencies: [String] {
-        return ["USD", "INR"]
+        return self.currencies
+    }
+    
+    var usdIndex: Int {
+        return self.availableCurrencyIndex
     }
     
     func bindViewModel() {
-        self.selectedSourceCurrency?(self.sourceCurrencies.first ?? "USD")
+        self.selectedSourceCurrency?(self.selectedCurrency)
     }
     
     func getExchangeRates(for currency: String) {
@@ -48,7 +53,11 @@ class CurrencyViewModel {
                         if lists.success, let quotes = lists.quotes, !quotes.isEmpty {
                             print(lists)
                             _self.exchangeRates = quotes
-                            UserDefaultsHelper.set(lists, forKey: currency)
+                            do {
+                                try UserDefaults.standard.setObject(lists, forKey: currency)
+                            } catch {
+                                print("Failed to save \(error)")
+                            }
                             _self.mapExchangeRateData()
                             _self.endLoading?()
                         } else {
@@ -94,28 +103,32 @@ class CurrencyViewModel {
             let responseData = try? JSONDecoder().decode(Countries.self, from: data)
             else { return [] }
         
-        return responseData.countries.map { $0.code }
+        return responseData.countries.enumerated().map ({ [weak self] (index, element) in
+            if element.code == "USD" {
+                self?.availableCurrencyIndex = index
+            }
+            return element.code
+        })
     }
     
     private func shouldFetchExchangeRates() -> Bool {
         guard
-            let rateLists = UserDefaultsHelper.get(forKey: self.selectedCurrency),
+            let rateLists = try? UserDefaults.standard.getObject(forKey: self.selectedCurrency, castTo: RateLists.self),
             let timeStamp = rateLists.timeStamp,
             let quotes = rateLists.quotes
             else { return true }
         
-        let minimumMinutes = 30.0
+        let dateTimeStamp = Date.init(timeIntervalSinceNow: timeStamp)
+        let timeElapsed: Int = Int(Date().timeIntervalSince(dateTimeStamp))
         
-        let date = Date(timeIntervalSince1970: timeStamp)
-        
-        if date.timeIntervalSinceNow < (30 * minimumMinutes) {
+        if timeElapsed < 30 * 60 {
             debugPrint("Not making call, Didn't go 30 min yet")
             self.exchangeRates = quotes
             self.mapExchangeRateData()
             self.endLoading?()
             return false
         }
-        UserDefaultsHelper.removeData(key: self.selectedCurrency)
+        UserDefaults.standard.removeData(key: self.selectedCurrency)
         return true
     }
 }
