@@ -43,7 +43,6 @@ class CurrencyViewModel {
     
     func getExchangeRates(for currency: String) {
         self.startLoading?()
-        
         if self.shouldFetchExchangeRates() {
             self.apiClient?.fetchListOfRecentRates(for: self.currencies, source: currency, then: { [weak self] response in
                 guard let _self = self else { return }
@@ -51,7 +50,7 @@ class CurrencyViewModel {
                     switch response {
                     case let .success(lists):
                         if lists.success, let quotes = lists.quotes, !quotes.isEmpty {
-                            print(lists)
+                            _self.endLoading?()
                             _self.exchangeRates = quotes
                             do {
                                 try UserDefaults.standard.setObject(lists, forKey: currency)
@@ -59,7 +58,6 @@ class CurrencyViewModel {
                                 print("Failed to save \(error)")
                             }
                             _self.mapExchangeRateData()
-                            _self.endLoading?()
                         } else {
                             _self.showError?(lists.error?.info ?? "")
                         }
@@ -68,6 +66,8 @@ class CurrencyViewModel {
                     }
                 }
             })
+        } else {
+            self.endLoading?()
         }
     }
     
@@ -97,18 +97,22 @@ class CurrencyViewModel {
     
     private func readAvailableCurrencies() -> [String] {
         
-        guard
-            let url =  Bundle.main.path(forResource: "Countries", ofType: "json"),
-            let data = try? Data(contentsOf: URL(fileURLWithPath: url), options: .mappedIfSafe),
-            let responseData = try? JSONDecoder().decode(Countries.self, from: data)
+        guard let url = Bundle.main.url(forResource: "Countries", withExtension: "json")
             else { return [] }
-        
-        return responseData.countries.enumerated().map ({ [weak self] (index, element) in
-            if element.code == "USD" {
-                self?.availableCurrencyIndex = index
-            }
-            return element.code
-        })
+        do {
+            let jsonData = try Data(contentsOf: url)
+            let responseData = try JSONDecoder().decode(Countries.self, from: jsonData)
+            return responseData.countries.enumerated().compactMap ({ [weak self] (index, element) in
+                if element.code == "USD" {
+                    self?.availableCurrencyIndex = index
+                }
+                return element.code
+            })
+        }
+        catch {
+            print(error)
+        }
+        return []
     }
     
     private func shouldFetchExchangeRates() -> Bool {
@@ -122,7 +126,6 @@ class CurrencyViewModel {
         let timeElapsed: Int = Int(Date().timeIntervalSince(dateTimeStamp))
         
         if timeElapsed < 30 * 60 {
-            debugPrint("Not making call, Didn't go 30 min yet")
             self.exchangeRates = quotes
             self.mapExchangeRateData()
             self.endLoading?()
