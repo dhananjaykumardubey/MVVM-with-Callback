@@ -9,34 +9,19 @@
 import XCTest
 @testable import Currency
 
-class CurrencyViewModelMock: CurrencyViewModelInput {
-    required init(with apiClient: CCAPIClient) {
-        
-    }
-    
-    var sourceCurrencies: [String] {
-        return ["abc", "ced"]
-    }
-    
-    var usdIndex: Int {
-        return 5
-    }
-    
-    
-    
-}
-
 class CurrencyViewModelTests: XCTestCase {
 
-    private var viewModel: CurrencyViewModelMock?
+    private var viewModel: CurrencyViewModel?
+    private var mock: NetworkSessionMock!
     
     override func setUp() {
-//        let apiclient = CCAPIClient(baseURL: URL(string: "https://abc/")!, key: "dummyKey")
-//        self.viewModel = CurrencyViewModelMock(with: apiclient)
+        self.mock = NetworkSessionMock()
+        self.viewModel = CurrencyViewModel(with: CCAPIClient(baseURL: URL(string: "https://abc/")!, key: "dummyKey", networkSession: self.mock))
     }
 
     override func tearDown() {
         self.viewModel = nil
+        self.mock = nil
     }
     
     func testSourceCurrencies() {
@@ -47,6 +32,19 @@ class CurrencyViewModelTests: XCTestCase {
     }
 
     func testUSDIndex() {
-//        XCTAssertEqual(self.viewModel?.usdIndex, )
+        XCTAssertEqual(self.viewModel?.usdIndex, 150)
+    }
+    
+    func testFetchingExchangeRate() {
+        self.mock.response = .success(Stubbed.successStubbedData)
+        let expectation = self.expectation(description: "Expect success")
+        
+        self.viewModel?.getExchangeRates(for: "USD")
+        self.viewModel?.exchangedRateData = { data in
+            expectation.fulfill()
+            XCTAssertNotNil(data)
+            XCTAssertEqual(data.count, 2)
+        }
+        self.wait(for: [expectation], timeout: 1)
     }
 }

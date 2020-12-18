@@ -8,16 +8,7 @@
 
 import Foundation
 
-protocol CurrencyViewModelInput {
-    
-    init(with apiClient: CCAPIClient)
-    
-    var sourceCurrencies: [String] { get }
-    
-    var usdIndex: Int { get }
-}
-
-class CurrencyViewModel: CurrencyViewModelInput {
+class CurrencyViewModel {
     
     // MARK: Callbacks or observers
     

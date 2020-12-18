@@ -13,3 +13,11 @@ struct ExchangeRateData {
     let currency: String
     let amount: Double
 }
+
+extension ExchangeRateData: Equatable {
+    static func ==(lhs: ExchangeRateData, rhs: ExchangeRateData) -> Bool {
+        return lhs.flag == rhs.flag &&
+            lhs.currency == rhs.currency &&
+            lhs.amount == rhs.amount
+    }
+}
