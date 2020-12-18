@@ -69,7 +69,7 @@ final class CurrencyViewController: UIViewController {
     
     private let sectionInsets = UIEdgeInsets(top: 10.0, left: 10.0, bottom: 10.0, right: 10.0)
     private lazy var currencyPickerView = UIPickerView()
-    private let viewModel = CurrencyViewModel()
+    private let viewModel = CurrencyViewModel(with: CCAPIClient(baseURL: NetworkConstant.baseURL, key: NetworkConstant.apiKey))
     private let loadingManager = LoadingViewManager()
     private var dataSource: ExchangeRateDataSource?
     

@@ -7,7 +7,8 @@
 //
 
 import Foundation
-@testable import CodeChallenge
+
+@testable import Currency
 
 class NetworkSessionMock: NetworkSession {
     enum  NetworkSessionMockError: Error {

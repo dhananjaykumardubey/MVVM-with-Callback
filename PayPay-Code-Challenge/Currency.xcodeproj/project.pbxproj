@@ -38,16 +38,20 @@
 		91A020512588E81600A12539 /* Format.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91A020502588E81600A12539 /* Format.swift */; };
 		91A020532588ED0200A12539 /* Array+Chunk.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91A020522588ED0200A12539 /* Array+Chunk.swift */; };
 		91A020552588F0B200A12539 /* UserDefaults+Wrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91A020542588F0B200A12539 /* UserDefaults+Wrapper.swift */; };
-		91A0205B258C5DD300A12539 /* NetworkSessionMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91A0205A258C5DD300A12539 /* NetworkSessionMock.swift */; };
+		91A02070258C69FF00A12539 /* NetworkSessionMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91A0206F258C69FF00A12539 /* NetworkSessionMock.swift */; };
+		91A02072258C6A3B00A12539 /* CCAPIClientForRateListRequestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91A02071258C6A3B00A12539 /* CCAPIClientForRateListRequestTests.swift */; };
+		91A02074258C7C0500A12539 /* RateListsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91A02073258C7C0500A12539 /* RateListsTests.swift */; };
+		91A02076258C7FA900A12539 /* Stubbed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91A02075258C7FA900A12539 /* Stubbed.swift */; };
+		91A0207A258C814200A12539 /* CurrencyViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91A02079258C814200A12539 /* CurrencyViewModelTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		91A02010258731CD00A12539 /* PBXContainerItemProxy */ = {
+		91A02067258C698600A12539 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 91A01FD7258727BA00A12539 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 91A01FDE258727BA00A12539;
-			remoteInfo = "PayPay-Code-Challenge";
+			remoteInfo = Currency;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -67,8 +71,6 @@
 		91A0200025872DC400A12539 /* Parsing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Parsing.swift; sourceTree = "<group>"; };
 		91A0200225872DDA00A12539 /* RequestBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestBuilder.swift; sourceTree = "<group>"; };
 		91A0200425872DF400A12539 /* NetworkConstant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkConstant.swift; sourceTree = "<group>"; };
-		91A0200B258731CD00A12539 /* CurrencyTest.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CurrencyTest.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		91A0200F258731CD00A12539 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		91A020162587338800A12539 /* CCAPIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CCAPIClient.swift; sourceTree = "<group>"; };
 		91A020182587580A00A12539 /* RateListRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RateListRequest.swift; sourceTree = "<group>"; };
 		91A0201B258758F200A12539 /* RateLists.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RateLists.swift; sourceTree = "<group>"; };
@@ -87,7 +89,13 @@
 		91A020502588E81600A12539 /* Format.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Format.swift; sourceTree = "<group>"; };
 		91A020522588ED0200A12539 /* Array+Chunk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Chunk.swift"; sourceTree = "<group>"; };
 		91A020542588F0B200A12539 /* UserDefaults+Wrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+Wrapper.swift"; sourceTree = "<group>"; };
-		91A0205A258C5DD300A12539 /* NetworkSessionMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkSessionMock.swift; sourceTree = "<group>"; };
+		91A02062258C698600A12539 /* CurrencyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CurrencyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		91A02066258C698600A12539 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		91A0206F258C69FF00A12539 /* NetworkSessionMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkSessionMock.swift; sourceTree = "<group>"; };
+		91A02071258C6A3B00A12539 /* CCAPIClientForRateListRequestTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CCAPIClientForRateListRequestTests.swift; sourceTree = "<group>"; };
+		91A02073258C7C0500A12539 /* RateListsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RateListsTests.swift; sourceTree = "<group>"; };
+		91A02075258C7FA900A12539 /* Stubbed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stubbed.swift; sourceTree = "<group>"; };
+		91A02079258C814200A12539 /* CurrencyViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyViewModelTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,7 +106,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		91A02008258731CD00A12539 /* Frameworks */ = {
+		91A0205F258C698600A12539 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -112,7 +120,7 @@
 			isa = PBXGroup;
 			children = (
 				91A01FE1258727BA00A12539 /* Currency */,
-				91A0200C258731CD00A12539 /* CurrencyTest */,
+				91A02063258C698600A12539 /* CurrencyTests */,
 				91A01FE0258727BA00A12539 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -121,7 +129,7 @@
 			isa = PBXGroup;
 			children = (
 				91A01FDF258727BA00A12539 /* Currency.app */,
-				91A0200B258731CD00A12539 /* CurrencyTest.xctest */,
+				91A02062258C698600A12539 /* CurrencyTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -166,15 +174,6 @@
 				91A0200425872DF400A12539 /* NetworkConstant.swift */,
 			);
 			path = Networking;
-			sourceTree = "<group>";
-		};
-		91A0200C258731CD00A12539 /* CurrencyTest */ = {
-			isa = PBXGroup;
-			children = (
-				91A0200F258731CD00A12539 /* Info.plist */,
-				91A0205A258C5DD300A12539 /* NetworkSessionMock.swift */,
-			);
-			path = CurrencyTest;
 			sourceTree = "<group>";
 		};
 		91A020152587336500A12539 /* CCApi */ = {
@@ -254,6 +253,19 @@
 			path = CurrencyCollection;
 			sourceTree = "<group>";
 		};
+		91A02063258C698600A12539 /* CurrencyTests */ = {
+			isa = PBXGroup;
+			children = (
+				91A02066258C698600A12539 /* Info.plist */,
+				91A0206F258C69FF00A12539 /* NetworkSessionMock.swift */,
+				91A02071258C6A3B00A12539 /* CCAPIClientForRateListRequestTests.swift */,
+				91A02073258C7C0500A12539 /* RateListsTests.swift */,
+				91A02075258C7FA900A12539 /* Stubbed.swift */,
+				91A02079258C814200A12539 /* CurrencyViewModelTests.swift */,
+			);
+			path = CurrencyTests;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -274,22 +286,22 @@
 			productReference = 91A01FDF258727BA00A12539 /* Currency.app */;
 			productType = "com.apple.product-type.application";
 		};
-		91A0200A258731CD00A12539 /* CurrencyTest */ = {
+		91A02061258C698600A12539 /* CurrencyTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 91A02012258731CD00A12539 /* Build configuration list for PBXNativeTarget "CurrencyTest" */;
+			buildConfigurationList = 91A02069258C698600A12539 /* Build configuration list for PBXNativeTarget "CurrencyTests" */;
 			buildPhases = (
-				91A02007258731CD00A12539 /* Sources */,
-				91A02008258731CD00A12539 /* Frameworks */,
-				91A02009258731CD00A12539 /* Resources */,
+				91A0205E258C698600A12539 /* Sources */,
+				91A0205F258C698600A12539 /* Frameworks */,
+				91A02060258C698600A12539 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				91A02011258731CD00A12539 /* PBXTargetDependency */,
+				91A02068258C698600A12539 /* PBXTargetDependency */,
 			);
-			name = CurrencyTest;
-			productName = "PayPay-Code-ChallengeTests";
-			productReference = 91A0200B258731CD00A12539 /* CurrencyTest.xctest */;
+			name = CurrencyTests;
+			productName = CurrencyTests;
+			productReference = 91A02062258C698600A12539 /* CurrencyTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -305,8 +317,9 @@
 					91A01FDE258727BA00A12539 = {
 						CreatedOnToolsVersion = 11.6;
 					};
-					91A0200A258731CD00A12539 = {
+					91A02061258C698600A12539 = {
 						CreatedOnToolsVersion = 11.6;
+						LastSwiftMigration = 1160;
 						TestTargetID = 91A01FDE258727BA00A12539;
 					};
 				};
@@ -325,7 +338,7 @@
 			projectRoot = "";
 			targets = (
 				91A01FDE258727BA00A12539 /* Currency */,
-				91A0200A258731CD00A12539 /* CurrencyTest */,
+				91A02061258C698600A12539 /* CurrencyTests */,
 			);
 		};
 /* End PBXProject section */
@@ -343,7 +356,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		91A02009258731CD00A12539 /* Resources */ = {
+		91A02060258C698600A12539 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -386,21 +399,25 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		91A02007258731CD00A12539 /* Sources */ = {
+		91A0205E258C698600A12539 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				91A0205B258C5DD300A12539 /* NetworkSessionMock.swift in Sources */,
+				91A02070258C69FF00A12539 /* NetworkSessionMock.swift in Sources */,
+				91A02076258C7FA900A12539 /* Stubbed.swift in Sources */,
+				91A02074258C7C0500A12539 /* RateListsTests.swift in Sources */,
+				91A02072258C6A3B00A12539 /* CCAPIClientForRateListRequestTests.swift in Sources */,
+				91A0207A258C814200A12539 /* CurrencyViewModelTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		91A02011258731CD00A12539 /* PBXTargetDependency */ = {
+		91A02068258C698600A12539 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 91A01FDE258727BA00A12539 /* Currency */;
-			targetProxy = 91A02010258731CD00A12539 /* PBXContainerItemProxy */;
+			targetProxy = 91A02067258C698600A12539 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -576,43 +593,46 @@
 			};
 			name = Release;
 		};
-		91A02013258731CD00A12539 /* Debug */ = {
+		91A0206A258C698600A12539 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = HP3Y7E23LF;
-				INFOPLIST_FILE = Currency/Supporting/Info.plist;
+				INFOPLIST_FILE = CurrencyTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.dhananjay.dubey.PayPay-Code-ChallengeTests";
+				PRODUCT_BUNDLE_IDENTIFIER = com.dhananjay.dubey.CurrencyTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PayPay-Code-Challenge.app/PayPay-Code-Challenge";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Currency.app/Currency";
 			};
 			name = Debug;
 		};
-		91A02014258731CD00A12539 /* Release */ = {
+		91A0206B258C698600A12539 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = HP3Y7E23LF;
-				INFOPLIST_FILE = Currency/Supporting/Info.plist;
+				INFOPLIST_FILE = CurrencyTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.dhananjay.dubey.PayPay-Code-ChallengeTests";
+				PRODUCT_BUNDLE_IDENTIFIER = com.dhananjay.dubey.CurrencyTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PayPay-Code-Challenge.app/PayPay-Code-Challenge";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Currency.app/Currency";
 			};
 			name = Release;
 		};
@@ -637,11 +657,11 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		91A02012258731CD00A12539 /* Build configuration list for PBXNativeTarget "CurrencyTest" */ = {
+		91A02069258C698600A12539 /* Build configuration list for PBXNativeTarget "CurrencyTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				91A02013258731CD00A12539 /* Debug */,
-				91A02014258731CD00A12539 /* Release */,
+				91A0206A258C698600A12539 /* Debug */,
+				91A0206B258C698600A12539 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

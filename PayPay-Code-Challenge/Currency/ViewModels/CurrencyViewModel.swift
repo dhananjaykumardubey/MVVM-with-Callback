@@ -8,7 +8,16 @@
 
 import Foundation
 
-class CurrencyViewModel {
+protocol CurrencyViewModelInput {
+    
+    init(with apiClient: CCAPIClient)
+    
+    var sourceCurrencies: [String] { get }
+    
+    var usdIndex: Int { get }
+}
+
+class CurrencyViewModel: CurrencyViewModelInput {
     
     // MARK: Callbacks or observers
     
@@ -35,9 +44,8 @@ class CurrencyViewModel {
     private var availableCurrencyIndex = 0
     private lazy var exchangeRates: [String: Double] = [:]
     
-    init() {
-        self.apiClient = CCAPIClient(baseURL: NetworkConstant.baseURL,
-                                     key: NetworkConstant.apiKey)
+    required init(with apiClient: CCAPIClient) {
+        self.apiClient = apiClient
         self.currencies = self.readAvailableCurrencies()
     }
     

@@ -26,7 +26,8 @@
       buildConfiguration = "Debug"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
-      shouldUseLaunchSchemeArgsEnv = "YES">
+      shouldUseLaunchSchemeArgsEnv = "YES"
+      codeCoverageEnabled = "YES">
       <Testables>
          <TestableReference
             skipped = "NO">
@@ -35,6 +36,16 @@
                BlueprintIdentifier = "91A0200A258731CD00A12539"
                BuildableName = "CurrencyTest.xctest"
                BlueprintName = "CurrencyTest"
+               ReferencedContainer = "container:Currency.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "91A02061258C698600A12539"
+               BuildableName = "CurrencyTests.xctest"
+               BlueprintName = "CurrencyTests"
                ReferencedContainer = "container:Currency.xcodeproj">
             </BuildableReference>
          </TestableReference>
