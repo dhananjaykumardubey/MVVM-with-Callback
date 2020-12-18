@@ -37,10 +37,14 @@ final class ExchangeRateCell: UICollectionViewCell {
         }
     }
     
+    /**
+     Configure cell with exchange rate data
+     - parameters:
+     - data: Exchange rate data
+     */
     func configure(with data: ExchangeRateData) {
         /// Amount should not be rounded of 2 decimal places and should be exact value. For easy UI, handling it here
         self.amountLabel.text = Format.formattedTwoDigitDecimal(data.amount)
-        
         self.flagLabel.text = data.flag
         self.currencyNameLabel.text = data.currency
         self.layoutIfNeeded()

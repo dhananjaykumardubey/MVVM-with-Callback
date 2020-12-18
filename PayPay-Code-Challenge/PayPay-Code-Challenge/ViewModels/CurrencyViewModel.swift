@@ -10,12 +10,24 @@ import Foundation
 
 class CurrencyViewModel {
     
+    // MARK: Callbacks or observers
+    
+    /// Callback for showing loader
     var startLoading: (() -> Void)?
+    
+    /// Callback for removing the loader
     var endLoading: (() -> Void)?
+    
+    /// Callback for showing the error message
     var showError: ((String) -> Void)?
+    
+    /// Callback returning selected source currency
     var selectedSourceCurrency: ((String) -> Void)?
+    
+    /// Callback returning exchangeRateData as datasource
     var exchangedRateData: (([[ExchangeRateData]]) -> Void)?
     
+    //MARK: Private properties
     private let apiClient: APIClient?
     private lazy var currencies: [String] = []
     private var amount: Double = 1.0
@@ -29,18 +41,27 @@ class CurrencyViewModel {
         self.currencies = self.readAvailableCurrencies()
     }
     
+    /// Source countries having a list of currency for which exchangeRate needs to be fetched
     var sourceCurrencies: [String] {
         return self.currencies
     }
     
+    /// Index of `USD` currency
+    /// Used this as only `USD` was available
     var usdIndex: Int {
         return self.availableCurrencyIndex
     }
     
+    /// BindViewModel call to let viewmodel know that bindViewModel of viewcontroller is called and completed and properties can be observed
     func bindViewModel() {
         self.selectedSourceCurrency?(self.selectedCurrency)
     }
     
+    /**
+     Get exchange rates for source currency
+     - parameters:
+        - currency: Source currency for which exchange rate needs to be fetched
+     */
     func getExchangeRates(for currency: String) {
         self.startLoading?()
         if self.shouldFetchExchangeRates() {
@@ -71,6 +92,11 @@ class CurrencyViewModel {
         }
     }
     
+    /**
+     Selected source country. Let viewModel know which currency was selected for fetching the exchange rates
+     - parameters:
+        - index: Selected currency index
+     */
     func selectedCurrency(index: Int) {
         if index < self.sourceCurrencies.count, self.amount >= 1.0 {
             self.selectedCurrency = self.sourceCurrencies[index]
@@ -79,10 +105,17 @@ class CurrencyViewModel {
         }
     }
     
+    /**
+     Entered amount which needs to be converted as per the available exchange rates
+     - parameters:
+        - value: Amount to be converted
+     */
     func amount(value: String) {
         self.amount = Double(value) ?? 0.0
         self.mapExchangeRateData()
     }
+    
+    // MARK: Private methods
     
     private func mapExchangeRateData() {
         var exchangeRatesData: [ExchangeRateData] = []
@@ -122,7 +155,7 @@ class CurrencyViewModel {
             let quotes = rateLists.quotes
             else { return true }
         
-        let dateTimeStamp = Date.init(timeIntervalSinceNow: timeStamp)
+        let dateTimeStamp = Date(timeIntervalSince1970: timeStamp)
         let timeElapsed: Int = Int(Date().timeIntervalSince(dateTimeStamp))
         
         if timeElapsed < 30 * 60 {

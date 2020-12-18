@@ -12,6 +12,12 @@ class ExchangeRateDataSource: NSObject, UICollectionViewDataSource {
     
     private var data: [[ExchangeRateData]]
     
+    /**
+     Initializes `ExchangeRateDataSource` with provided exchange rate data, to be displayed in collection view
+     
+     - parameters:
+     - data: datasource of exchange rate data
+     */
     init(with data: [[ExchangeRateData]]) {
         self.data = data
     }

@@ -10,6 +10,7 @@ import UIKit.UITextField
 
 extension UITextField {
     
+    /// Adds a Done button in textFields input accessory view
     func addDoneButton() {
         let doneToolbar: UIToolbar = UIToolbar(frame: CGRect.init(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 44))
         doneToolbar.barStyle = .default
@@ -24,6 +25,11 @@ extension UITextField {
         self.inputAccessoryView = doneToolbar
     }
     
+    /**
+     Adds an image into a right view of textfield
+     - parameters:
+        - imageName: Image which needs to be added in textfield
+     */
     func setupRightImage(imageName: String) {
         let imageView = UIImageView(frame: CGRect(x: 10, y: 10, width: 20, height: 20))
         imageView.image = UIImage(named: imageName)?.tinted(with: .lightGray)

@@ -15,6 +15,10 @@ final class LoadingView: UIView {
 
     private var contentView: UIView!
     
+    /**
+     `LoadingView` initializer
+     - return: Returns an instance of LoadingView
+     */
     func instantiateXIB() -> UIView {
         let bundle = Bundle(for: type(of: self))
         let nib = UINib(nibName: String(describing: type(of: self)), bundle: bundle)

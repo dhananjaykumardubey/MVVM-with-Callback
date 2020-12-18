@@ -10,6 +10,8 @@ import UIKit
 
 final class CurrencyViewController: UIViewController {
     
+    // MARK: Private Outlets
+    
     @IBOutlet private weak var contentView: UIView! {
         didSet {
             self.contentView.backgroundColor = UIColor.lightGray.withAlphaComponent(0.3)
@@ -63,6 +65,8 @@ final class CurrencyViewController: UIViewController {
         }
     }
     
+    // MARK: Private properties
+    
     private let sectionInsets = UIEdgeInsets(top: 10.0, left: 10.0, bottom: 10.0, right: 10.0)
     private lazy var currencyPickerView = UIPickerView()
     private let viewModel = CurrencyViewModel()
@@ -112,6 +116,8 @@ final class CurrencyViewController: UIViewController {
     }
 }
 
+// MARK: TextField delegate
+
 extension CurrencyViewController: UITextFieldDelegate {
     
     func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
@@ -124,6 +130,8 @@ extension CurrencyViewController: UITextFieldDelegate {
         return true
     }
 }
+
+// MARK: PickerView delegate and datasource
 
 extension CurrencyViewController: UIPickerViewDataSource, UIPickerViewDelegate {
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
@@ -157,6 +165,8 @@ extension CurrencyViewController: UIPickerViewDataSource, UIPickerViewDelegate {
         return nil
     }
 }
+
+// MARK: `UICollectionViewDelegateFlowLayout` delegate methods
 
 extension CurrencyViewController: UICollectionViewDelegateFlowLayout {
 

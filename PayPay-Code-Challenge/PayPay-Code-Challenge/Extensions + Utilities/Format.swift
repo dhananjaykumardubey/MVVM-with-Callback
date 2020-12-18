@@ -9,6 +9,13 @@
 import Foundation
 
 enum Format {
+    
+    /**
+     Formats double value to have the number upto 2 decimal value
+     - parameters:
+        - value: Value which needs to be formatted
+        - returns: Returns the formatted value in form of String
+     */
     static func formattedTwoDigitDecimal(_ value: Double) -> String {
         let formatter = NumberFormatterConfig.cachedFormatter(
             forConfig: .defaultTwoDecimalNumberConfig)

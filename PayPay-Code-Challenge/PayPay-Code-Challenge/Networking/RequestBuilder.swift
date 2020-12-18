@@ -14,12 +14,20 @@ protocol RequestBuilder {
 
 struct NetworkRequestBuilder: RequestBuilder {
     
+    /// API request errors
     enum BuilderError: Error {
         case apiKeyMissing
         case unableToResolveURL(URL)
         case unableBuildURL(message: String)
     }
     
+    /**
+     Request builder, with using baseUrl, and query parameters
+     - parameters:
+         - baseUrl: Base Url for API call
+         - parameters: Query parameters which will be appened in URL for Get request
+         - returns: Prepared URL Request having baseURL, endpoint and query parameter
+     */
     func buildURLRequest(withURL baseUrl: URL, andParameters parameters: [String: String]) throws -> URLRequest {
         
         /// Putting endpoint directly for this code due to time constraint. But yes, this should be done separately to add scalability

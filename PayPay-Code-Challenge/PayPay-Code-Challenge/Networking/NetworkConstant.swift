@@ -9,8 +9,9 @@
 import Foundation
 
 enum NetworkConstant {
+    /// Base URL for fetching exchange rate
     static let baseURL = URL(string: "http://api.currencylayer.com/")!
+    
+    /// API key for Currency layer
     static let apiKey = "5a150f1d482c1d87535c73880ed51426"
-    
-    
 }

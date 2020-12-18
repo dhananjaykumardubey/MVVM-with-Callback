@@ -35,6 +35,14 @@ struct CCAPIClient: APIClient {
         self.networkSession = networkSession
     }
     
+    /**
+     Fetch the list of exchange rates against a source currency for required currencies
+     
+     - parameters:
+         - countries: List of countries for which exchange rates needs to be fecthed
+         - source: Source Currency for which exchange rates is required
+         - completion: Completion block having rate list containing exchange rates
+     */
     func fetchListOfRecentRates(for countries: [String], source: String, then completion: @escaping (((Result<RateLists>) -> Void))) {
         let request = RatesListRequest(url: self.baseURL, currencies: countries, apiKey: self.key, source: source)
         request.execute(onNetwork: self.networkSession, then: completion)

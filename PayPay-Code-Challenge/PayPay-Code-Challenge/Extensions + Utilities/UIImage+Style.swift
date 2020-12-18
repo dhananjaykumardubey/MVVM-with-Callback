@@ -9,6 +9,13 @@
 import UIKit.UIImage
 
 extension UIImage {
+    
+    /**
+     Add tint color to an image
+     - parameters:
+         - color: Tint color to be applied on an image
+         - returns: Returns a new image with tint color
+     */
     func tinted(with color: UIColor) -> UIImage? {
         UIGraphicsBeginImageContextWithOptions(size, false, scale)
         guard let ctx = UIGraphicsGetCurrentContext(), let cgImage = cgImage else { return self }

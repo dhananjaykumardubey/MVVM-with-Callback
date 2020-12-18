@@ -15,6 +15,7 @@ protocol ObjectSavable {
     func removeAll()
 }
 
+/// Object saving errors
 enum ObjectSavableError: String, LocalizedError {
     case unableToEncode = "Unable to encode object into data"
     case noValue = "No data object found for the given key"
